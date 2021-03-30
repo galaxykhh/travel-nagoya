@@ -1,38 +1,41 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components'
-
-const FadeUp = keyframes`
-  from {
-    opacity: 0;
-    margin-top: 600px;
-  }
-  to {
-    opacity: 1;
-    padding-top: 0px;
-  }
-`;
+import styled from 'styled-components'
 
 const DIV = styled.div`
-  display: flex;
+  display: block;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   border-radius: 60px;
-  margin-top: 100px;
-  background-color: #FADAD8;
+  margin-top: 1400px;
+  background-color: #e4e7ec;
   opacity: 1;
   width: 1200px;
-  height: 300px;
-  animation: ${FadeUp} 1s ease forwards;
+  height: 2000px;
+  animation: ${props => props.animate} 0.8s ease forwards;
+  transition: 1s;
 `;
 
-function ScreenViewer({ children }) {
+const FLEX = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
 
-  return (
-    <DIV>
-        {children}
-    </DIV>
-  );
+const stopProp = (e) => {
+    e.stopPropagation();
+}
+
+function ScreenViewer({ children, animate }) {
+
+    return (
+        <DIV onClick={stopProp} animate={animate} >
+            <FLEX>
+                {children}
+            </FLEX>
+        </DIV>
+    );
 }
 
 export default ScreenViewer;

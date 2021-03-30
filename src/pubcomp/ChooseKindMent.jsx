@@ -13,21 +13,21 @@ const FadeUp = keyframes`
 `;
 
 const H1 = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 130px;
-  color: black;
-  font-size: 35px;
-  opacity: 0;
-  animation: ${FadeUp} .8s ease forwards;
-  animation-delay: 1.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 130px;
+    color: black;
+    font-size: 35px;
+    opacity: 0;
+    animation: ${FadeUp} .8s ease forwards;
+    animation-delay: 0.7s;
 `;
 
-function ChooseKindMent({children}) {
-  return (
-    <H1> {children} </H1>
-  );
+function ChooseKindMent({ children }) {
+    return (
+        <H1> {children} </H1>
+    );
 }
 
 export default ChooseKindMent;

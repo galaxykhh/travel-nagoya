@@ -11,12 +11,12 @@ const FirstFlex = styled.div`
 `;
 
 function TourContainer() {
-  return (
-    <FirstFlex>
-      <SelectedMent> 볼거리를 선택해주셨네요! </SelectedMent>
-      <ChooseKindMent> 여행 스타일이 어떻게 되세요? </ChooseKindMent>
-    </FirstFlex>
-  );
+    return (
+        <FirstFlex>
+            <SelectedMent> 볼거리를 선택해주셨네요! </SelectedMent>
+            <ChooseKindMent> 여행 스타일이 어떻게 되세요? </ChooseKindMent>
+        </FirstFlex>
+    );
 }
 
 export default TourContainer;

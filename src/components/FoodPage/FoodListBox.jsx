@@ -22,19 +22,20 @@ const FLEX = styled.div`
   height: 300px;
   opacity: 0;
   animation: ${FadeUp} 1s ease forwards;
-  animation-delay: 1.8s;
+  animation-delay: 1s;
 `;
 
-const FoodListBox = ({foodData}) => {
-  return (
-    <FLEX>
-      {foodData.map(list => (
-        <FoodLists list={list}
-          key={list.id}
-         />
-      ))}
-    </FLEX>
-  );
+const FoodListBox = ({ foodData, handleChangeFood }) => {
+    return (
+        <FLEX>
+            {foodData.map(list => (
+                <FoodLists list={list}
+                    key={list.id}
+                    handleChangeFood={handleChangeFood}
+                />
+            ))}
+        </FLEX>
+    );
 };
 
 export default FoodListBox;

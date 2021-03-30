@@ -7,10 +7,19 @@ const IMG = styled.div`
   background-repeat: no-repeat;
   width: 140px;
   height: 140px;
+  @media only screen and (max-width: 900px) {
+    width: 100px;
+    height: 100px;
+  }
 `;
 
 const Menu = styled.div`
   font-size: 25px;
+
+  @media only screen and (max-width: 900px) {
+    font-size: 15px;
+    padding-right: 30px;
+  }
 `;
 
 const SBox = styled.div`
@@ -29,19 +38,23 @@ const SBox = styled.div`
     cursor: pointer;
     background-color: #e8e8e9;
   }
+  @media only screen and (max-width: 900px) {
+    width: 90px;
+    height: 90px;
+  }
 `;
 
-function FoodLists({ list }) {
-  const { path, food } = list;
+function FoodLists({ list, handleChangeFood }) {
+    const { path, foodName } = list;
 
-  return (
-    <>
-        <SBox >
-          <IMG path={path} />
-          <Menu> {food} </Menu>
-        </SBox>
-    </>
-  );
+    return (
+        <>
+            <SBox onClick={() => handleChangeFood(foodName)} >
+                <IMG path={path} />
+                <Menu> {foodName} </Menu>
+            </SBox>
+        </>
+    );
 }
 
 export default FoodLists;

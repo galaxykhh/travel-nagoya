@@ -4,11 +4,11 @@ import FoodContainer from '../containers/FoodContainer';
 
 
 function Food() {
-  return (
-    <>
-    <FoodContainer />
-    </>
-  );
+    return (
+        <>
+            <FoodContainer />
+        </>
+    );
 }
 
 export default Food;

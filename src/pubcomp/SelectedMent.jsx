@@ -16,16 +16,16 @@ const H1 = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 140px;
+  margin-top: 200px;
   color: black;
   font-size: 50px;
   animation: ${FadeUp} .8s ease;
 `;
 
-function SelectedMent({children}) {
-  return (
-    <H1> {children} </H1>
-  );
+function SelectedMent({ children }) {
+    return (
+        <H1> {children} </H1>
+    );
 }
 
 export default SelectedMent;
