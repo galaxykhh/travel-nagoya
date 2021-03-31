@@ -55,6 +55,7 @@ const Trav = styled.div`
 
 const Nago = styled.div`
   font-size: 19px;
+  letter-spacing: 1px;
 `;
 
 

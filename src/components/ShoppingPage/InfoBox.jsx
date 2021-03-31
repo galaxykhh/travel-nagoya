@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import ScreenViewer from '../../pubcomp/ScreenViewer';
-import ReviewBox from './ReviewBox';
 
 const Wrap = styled.div`
   position: absolute;
@@ -24,35 +23,25 @@ const H1 = styled.div`
     font-weight: bold;
     font-size: 30px;
     margin-top: 40px;
-    @media only screen and (max-width: 640px) {
-        font-size: 23px;
-    }
 `;
 
 const H2 = styled.div`
     font-size: 20px;
     margin-top: 50px;
     white-space: pre-wrap;
-    @media only screen and (max-width: 640px) {
-        font-size: 15px;
-    }
 `;
 
 
-const InfoBox = ({ food, memo, ovrly, modal, imgPath, restName, restSub, linkTo, hideOvrly, animate }) => {
+const InfoBox = ({ shopName, subtitle, modal, ovrly, hideOvrly, animate }) => {
 
     return (
         <Wrap ovrly={ovrly} onClick={hideOvrly} >
             <FLEX >
                 <ScreenViewer modal={modal}
                               animate={animate} >
-                    <H1> {food} </H1>
-                    <H2> {memo} </H2>
-                    <ReviewBox imgPath={imgPath}
-                               restName={restName}
-                               restSub={restSub}
-                               linkTo={linkTo}
-                               />
+                    <H1> {shopName} </H1>
+                    <H2> {subtitle} </H2>
+
                 </ScreenViewer>
             </FLEX>
         </Wrap>

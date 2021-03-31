@@ -22,6 +22,9 @@ const H1 = styled.div`
     opacity: 0;
     animation: ${FadeUp} .8s ease forwards;
     animation-delay: 0.7s;
+    @media only screen and (max-width: 540px) {
+      font-size: 26px;
+  }
 `;
 
 function ChooseKindMent({ children }) {

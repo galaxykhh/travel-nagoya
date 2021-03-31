@@ -5,7 +5,7 @@ import SelectedMent from '../pubcomp/SelectedMent';
 import ChooseKindMent from '../pubcomp/ChooseKindMent';
 import FoodListBox from '../components/FoodPage/FoodListBox';
 import InfoBox from '../components/FoodPage/InfoBox';
-const FoodURL = 'http://localhost:8000/foodinfo';
+const foodURL = 'http://localhost:8000/foodinfo';
 const NONE = 'none';
 const BLOCK = 'block';
 
@@ -39,17 +39,18 @@ const slideDown = keyframes`
 
 const FoodContainer = () => {
 
-    const [foodData, setFoodData] = useState([]); // 서버에서 총 받아온다
-    const [food, setFood] = useState(); // 음식 이름을 전달해준다
-    const [memo, setMemo] = useState(); // 전달받은 음식에 대한 설명
-    const [imgPath, setImgPath] = useState(); // 가게 이미지
-    const [restName, setRestName] = useState(); // 가게 이름
-    const [restSub, setRestSub] = useState(); // 가게 설명
-    const [ovrly, setOvrly] = useState(NONE); // 설명창 상태 토글
-    const [animate, setAnimate] = useState(slideUp); // 모달창의 애니메이션 처리
+    const [foodData, setFoodData] = useState([]);
+    const [food, setFood] = useState();
+    const [memo, setMemo] = useState();
+    const [imgPath, setImgPath] = useState();
+    const [restName, setRestName] = useState();
+    const [restSub, setRestSub] = useState();
+    const [linkTo, setLinkTo] = useState();
+    const [ovrly, setOvrly] = useState(NONE);
+    const [animate, setAnimate] = useState(slideUp);
 
     const getFoodData = async () => {
-        const res = await axios.get(FoodURL);
+        const res = await axios.get(foodURL);
         if (!res) {
             console.log(`${res} is not undefined`)
             return;
@@ -67,11 +68,13 @@ const FoodContainer = () => {
         const memo = selectedFood.memo;
         const restName = selectedFood.restName;
         const restSub = selectedFood.restSub;
+        const linkTo = selectedFood.linkTo;
         const imgPath = selectedFood.imgPath;
         setFood(foodName);
         setMemo(memo);
         setRestName(restName);
         setRestSub(restSub);
+        setLinkTo(linkTo);
         setImgPath(imgPath);
         setOvrly(BLOCK);
     }
@@ -88,6 +91,7 @@ const FoodContainer = () => {
             <Flex>
                 <SelectedMent> 먹거리를 선택해주셨네요! </SelectedMent>
                 <ChooseKindMent> 원하시는 메뉴를 골라주세요 </ChooseKindMent>
+                
                 <FoodListBox foodData={foodData}
                              handleChangeFood={handleChangeFood}
                 />
@@ -96,6 +100,7 @@ const FoodContainer = () => {
                          imgPath={imgPath}
                          restName={restName}
                          restSub={restSub}
+                         linkTo={linkTo}
                          ovrly={ovrly}
                          animate={animate}
                          hideOvrly={hideOvrly}

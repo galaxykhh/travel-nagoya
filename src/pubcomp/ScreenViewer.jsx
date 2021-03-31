@@ -10,10 +10,13 @@ const DIV = styled.div`
   margin-top: 1400px;
   background-color: #e4e7ec;
   opacity: 1;
-  width: 1200px;
-  height: 2000px;
+  width: 80%;
+  height: 1000px;
   animation: ${props => props.animate} 0.8s ease forwards;
   transition: 1s;
+  @media only screen and (max-width: 660px) {
+      height: 1500px;
+  }
 `;
 
 const FLEX = styled.div`
