@@ -7,6 +7,11 @@ const ShopBox = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 40px;
+    transition:transform .5s ease;
+    &:hover {
+        cursor: pointer;
+        transform:scale(1.02);
+    }
 `;
 
 const IMG = styled.img`

@@ -4,14 +4,14 @@ import Wallpaper from './Wallpaper'
 import Subtitle from './Subtitle'
 
 function CompBox() {
-  return (
-    <div>
-      <Wallpaper />
-      <FlexDIV column >
-      <Subtitle />
-      </FlexDIV>
-    </div>
-  );
+    return (
+        <div>
+            <Wallpaper />
+            <FlexDIV column >
+                <Subtitle />
+            </FlexDIV>
+        </div>
+    );
 }
 
 const FlexDIV = styled.div`
