@@ -23,7 +23,7 @@ const AccountBtn = styled(NavLink)`
 `;
 
 const AccountBox = styled.div`
-    position: absolute;
+    position: fixed;
     top: 12px;
     right: 25px;
     display: flex;

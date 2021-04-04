@@ -2,24 +2,12 @@ import React, { useContext } from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { authContext } from '../App';
 
-const PrivateRoute = ({ children, ...rest }) => {
+const PrivateRoute = ({ children }) => {
     const store = useContext(authContext);
 
     return (
         <Route
-            {...rest}
-            render={({ location }) =>
-                store.user ? (
-                    children
-                ) : (
-                    <Redirect
-                        to={{
-                            pathname: '/login',
-                            state: { from: location }
-                        }}
-                    />
-                )
-            }
+            render={() => store.user ? (children) : (<Redirect to='/login'/>)}
         />
     );
 }

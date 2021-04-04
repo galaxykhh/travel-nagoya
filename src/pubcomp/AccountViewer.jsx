@@ -6,7 +6,7 @@ const FLEX = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 230px;
+    margin-top: 120px;
 `;
 
 const AccountViewer = ({children}) => {

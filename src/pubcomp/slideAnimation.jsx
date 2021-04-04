@@ -1,12 +1,23 @@
 import { keyframes } from 'styled-components';
 
-export const slideUp = keyframes`
+export const slideDown = keyframes`
     from {
-        margin-top: 30px;
+        margin-left: 200px;
         opacity: 0;
     }
     to {
-        margin-top: 0px;
+        margin-left: 0px;
+        opacity: 1;
+    }
+`;
+
+export const slideLeft = keyframes`
+    from {
+        margin-right: 200px;
+        opacity: 0;
+    }
+    to {
+        margin-right: 0px;
         opacity: 1;
     }
 `;

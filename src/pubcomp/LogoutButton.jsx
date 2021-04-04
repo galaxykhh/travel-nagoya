@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { authContext } from '../App';
 
 const AccountBtn = styled(NavLink)`
@@ -24,7 +24,7 @@ const AccountBtn = styled(NavLink)`
 `;
 
 const AccountBox = styled.div`
-    position: absolute;
+    position: fixed;
     top: 12px;
     right: 25px;
     display: flex;
@@ -38,7 +38,6 @@ const AccountBox = styled.div`
 
 const LoginButton = ({children}) => {
     const store = useContext(authContext);
-    const history = useHistory;
 
     const signout = () => {
         store.setUser('');
@@ -47,7 +46,7 @@ const LoginButton = ({children}) => {
 
     return (
         <AccountBox>
-            <AccountBtn to='/' onClick={signout} > {children} </AccountBtn>
+            <AccountBtn to='/login' onClick={signout} > {children} </AccountBtn>
         </AccountBox>
     );
 }

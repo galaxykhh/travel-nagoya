@@ -46,13 +46,15 @@ function App() {
                         <ScrollToTop />
                         <Shopping />
                     </PrivateRoute>
+
                     <Route exact path='/login'>
                         <ScrollToTop />
                         <LoginPage />
                     </Route>
-                    <PrivateRoute exact path='/makeaccount'>
+                    
+                    <Route exact path='/makeaccount'>
                         <MakeAccount />
-                    </PrivateRoute>
+                    </Route>
                     <PrivateRoute exact path='/profile'>
                         <ScrollToTop />
                         <Profile />
