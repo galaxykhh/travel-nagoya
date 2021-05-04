@@ -21,11 +21,6 @@ const headerInfo = [
         to: '/shopping',
         children: '쇼핑',
     },
-    {
-        id: 4,
-        to: '/profile',
-        children: '프로필'
-    }
 ];
 
 const Bar = styled.div`

@@ -56,7 +56,7 @@ const LoginPage = () => {
     const history = useHistory();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [checkLogin, setcheckLogin] = useState('');
+    const [checkLogin, setCheckLogin] = useState('');
     const [spy, setSpy] = useState(false);
     const getIDValue = (e) => {
         setEmail(e.target.value);
@@ -79,7 +79,7 @@ const LoginPage = () => {
 
         const tryUser = userData.find((userData) => userData.email === email && userData.password === password)
         if (tryUser === undefined) {
-            setcheckLogin('회원 정보가 일치하지 않습니다')
+            setCheckLogin('회원 정보가 일치하지 않습니다')
             setEmail('');
             setPassword('');
             setSpy(!spy);

@@ -4,7 +4,6 @@ import Header from './components/Header/header';
 import Main from './pages/Main';
 import Food from './pages/Food';
 import Tour from './pages/Tour';
-import Profile from './pages/Profile'
 import Shopping from './pages/Shopping';
 import LoginPage from './pages/LoginPage';
 import MakeAccount from './pages/MakeAccount';
@@ -55,10 +54,7 @@ function App() {
                     <Route exact path='/makeaccount'>
                         <MakeAccount />
                     </Route>
-                    <PrivateRoute exact path='/profile'>
-                        <ScrollToTop />
-                        <Profile />
-                    </PrivateRoute>
+                    
                 </Switch>
             </BrowserRouter>
         </authContext.Provider>
