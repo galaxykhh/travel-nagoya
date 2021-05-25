@@ -3,7 +3,7 @@
 # dependencies
 /node_modules
 /server
-/public/Image
+/public/Image/
 /.pnp
 .pnp.js
 

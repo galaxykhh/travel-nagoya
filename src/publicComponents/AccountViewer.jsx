@@ -3,13 +3,13 @@ import styled from 'styled-components';
 
 const AccountViewer = ({children}) => {
     return (
-        <FLEX> {children} </FLEX>
+        <FlexBox> {children} </FlexBox>
     );
 };
 
 export default AccountViewer;
 
-const FLEX = styled.div`
+const FlexBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;

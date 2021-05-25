@@ -1,6 +1,22 @@
 import React from 'react';
 import styled from 'styled-components'
 
+const ScreenViewer = ({ children, animate }) => {
+    const stopProp = (e) => {
+        e.stopPropagation();
+    };
+
+    return (
+        <DIV onClick={stopProp} animate={animate} >
+            <FLEX>
+                {children}
+            </FLEX>
+        </DIV>
+    );
+}
+
+export default ScreenViewer;
+
 const DIV = styled.div`
     display: block;
     flex-direction: column;
@@ -25,20 +41,3 @@ const FLEX = styled.div`
     justify-content: center;
     align-items: center;
 `;
-
-const stopProp = (e) => {
-    e.stopPropagation();
-}
-
-function ScreenViewer({ children, animate }) {
-
-    return (
-        <DIV onClick={stopProp} animate={animate} >
-            <FLEX>
-                {children}
-            </FLEX>
-        </DIV>
-    );
-}
-
-export default ScreenViewer;

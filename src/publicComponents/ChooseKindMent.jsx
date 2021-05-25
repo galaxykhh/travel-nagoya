@@ -2,15 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { fadeUp } from '../style/keyframes';
 
-function ChooseKindMent({ children }) {
+const ChooseKindMent = ({ children }) => {
     return (
-        <H1> {children} </H1>
+        <FlexBox> {children} </FlexBox>
     );
 }
 
 export default ChooseKindMent;
 
-const H1 = styled.div`
+const FlexBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

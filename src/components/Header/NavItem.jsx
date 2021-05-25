@@ -2,13 +2,15 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-function NavItem ({ item })  {
+const NavItem =  ({ item }) => {
   const { to, children } = item;
 
   return (
     <Link to={to}> {children} </Link>
   );
-}
+};
+
+export default NavItem;
 
 const Link = styled(NavLink)`
   padding-left: 20px;
@@ -23,5 +25,3 @@ const Link = styled(NavLink)`
     opacity: 1;
   }
 `;
-
-export default NavItem;

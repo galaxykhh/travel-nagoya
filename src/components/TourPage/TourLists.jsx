@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function TourLists({ list, handleChangeTour }) {
+const TourLists = ({ list, handleChangeTour }) => {
     const { path, category } = list;
 
     return (

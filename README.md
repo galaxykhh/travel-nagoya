@@ -1,4 +1,4 @@
-# Develop Website Travel Information of Nagoya
+# Travel Nagoya
 
 ## Client
 * React JS

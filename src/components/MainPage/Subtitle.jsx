@@ -19,7 +19,7 @@ const SubImgs = [
     },
 ];
 
-function Subtitle() {
+const Subtitle = () => {
     return (
         <Container>
             <Fade bottom>
