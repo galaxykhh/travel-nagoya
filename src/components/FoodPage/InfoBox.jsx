@@ -3,22 +3,22 @@ import styled from 'styled-components';
 import ScreenViewer from '../../publicComponents/ScreenViewer';
 import ReviewBox from './ReviewBox';
 
-const InfoBox = ({ food, memo, ovrly, modal, imgPath, restName, restSub, linkTo, hideOvrly, animate }) => {
+const InfoBox = ({ selectedFood, ovrly, modal, hideOvrly, animate }) => {
     return (
         <Wrap ovrly={ovrly} onClick={hideOvrly} >
-            <FLEX >
+            <FlexBox >
                 <ScreenViewer modal={modal}
                     animate={animate}
                 >
-                    <Food> {food} </Food>
-                    <Memo> {memo} </Memo>
-                    <ReviewBox imgPath={imgPath}
-                        restName={restName}
-                        restSub={restSub}
-                        linkTo={linkTo}
+                    <Food> {selectedFood?.food} </Food>
+                    <Memo> {selectedFood?.memo} </Memo>
+                    <ReviewBox imgPath={selectedFood?.imgPath}
+                        restName={selectedFood?.restName}
+                        restSub={selectedFood?.restSub}
+                        linkTo={selectedFood?.linkTo}
                     />
                 </ScreenViewer>
-            </FLEX>
+            </FlexBox>
         </Wrap>
     );
 };
@@ -35,7 +35,7 @@ const Wrap = styled.div`
     opacity: 1;
 `;
 
-const FLEX = styled.div`
+const FlexBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

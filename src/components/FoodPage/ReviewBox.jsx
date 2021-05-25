@@ -5,7 +5,6 @@ const ReviewBox = ({imgPath, restName, restSub, linkTo}) => {
     return (
         <>
             <FirstMent>아래 가게는 별점이 가장 높은 가게입니다!</FirstMent>
-            <SecondMent> (마음에 드는 가게를 누르시면 상세 페이지로 이동합니다)</SecondMent>
             <Box as='a' href={linkTo} target="_blank" >
                 <Img src={imgPath} />
                 <Item>
@@ -101,14 +100,5 @@ const FirstMent = styled.div`
     font-size: 25px;
     @media only screen and (max-width: 540px) {
         font-size: 15px;
-    }
-`;
-
-const SecondMent = styled.div`
-    margin-top: 30px;
-    font-size: 18px;
-    color: #26586b;
-    @media only screen and (max-width: 540px) {
-        font-size: 13px;
     }
 `;

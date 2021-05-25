@@ -11,7 +11,7 @@ const BLOCK = 'block';
 
 const ShoppingPage = () => {
     const [shopData, setShopData] = useState([]);
-    const [selectedShop, setSelectedShop] = useState([]);
+    const [selectedShop, setSelectedShop] = useState();
     const [ovrly, setOvrly] = useState(NONE);
     const [animate, setAnimate] = useState(slideUp);
 

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function FoodLists({ list, handleChangeFood }) {
-    const { path, foodName } = list;
+const FoodLists = ({ item, handleChangeFood }) => {
+    const { path, foodName } = item;
 
     return (
-        <SBox onClick={() => handleChangeFood(foodName)} >
+        <SBox onClick={handleChangeFood} >
         <IMG path={path} />
             <Menu> {foodName} </Menu>
         </SBox>

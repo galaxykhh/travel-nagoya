@@ -3,6 +3,21 @@ import styled from 'styled-components';
 import { fadeUp } from '../../style/keyframes';
 import FoodLists from './FoodLists';
 
+const FoodListBox = ({ foodData, handleChangeFood }) => {
+    return (
+        <FlexBox>
+            {foodData.map((item, index) => (
+                <FoodLists item={item}
+                    key={item.id}
+                    handleChangeFood={() => handleChangeFood(index)}
+                />
+            ))}
+        </FlexBox>
+    );
+};
+
+export default FoodListBox;
+
 const FlexBox = styled.div`
     display: flex;
     flex-direction: row;
@@ -14,18 +29,3 @@ const FlexBox = styled.div`
     animation: ${fadeUp} 1s ease forwards;
     animation-delay: 1s;
 `;
-
-const FoodListBox = ({ foodData, handleChangeFood }) => {
-    return (
-        <FlexBox>
-            {foodData.map(list => (
-                <FoodLists list={list}
-                    key={list.id}
-                    handleChangeFood={handleChangeFood}
-                />
-            ))}
-        </FlexBox>
-    );
-};
-
-export default FoodListBox;
