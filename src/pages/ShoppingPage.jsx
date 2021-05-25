@@ -6,6 +6,7 @@ import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import ShopListBox from '../components/ShoppingPage/ShopListBox';
 import InfoBox from '../components/ShoppingPage/InfoBox';
 import { slideUp, slideDown } from '../style/keyframes';
+import categoryRepository from '../repository/categoryRepository';
 const shopURL = 'http://localhost:8000/shopinfo';
 const NONE = 'none';
 const BLOCK = 'block';
@@ -17,18 +18,19 @@ const ShoppingPage = () => {
     const [ovrly, setOvrly] = useState(NONE);
     const [animate, setAnimate] = useState(slideUp);
 
-    const getShopData = async () => {
-        const res = await axios.get(shopURL);
-        if (!res) {
-            console.log(`${res} is not undefined`)
-            return;
-        }
-        setShopData(res.data);
+    const getShoppingData = async () => {
+        try {
+            const { data } = await categoryRepository.getShoppingData();
+            setShopData(data);
+        } catch(err) {
+            console.log(err);
+            alert('서버에 오류가 있습니다');
+        };
     }
 
     useEffect(() => {
-        getShopData();
-    }, [])
+        getShoppingData();
+    }, []);
 
     const handleChangeShop = (clickedShop) => {
         const selectedShop = shopData.find(({ shopName }) => shopName === clickedShop);
@@ -43,7 +45,7 @@ const ShoppingPage = () => {
         window.scrollTo(0, 0);
         setTimeout(() => setOvrly(NONE), 450);
         setTimeout(() => setAnimate(slideUp), 450);
-        setAnimate(slideDown)
+        setAnimate(slideDown);
     };
 
     return (

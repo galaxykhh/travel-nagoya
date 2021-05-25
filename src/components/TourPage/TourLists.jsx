@@ -6,7 +6,7 @@ function TourLists({ list, handleChangeTour }) {
 
     return (
         <>
-            <SBox onClick={() => handleChangeTour(category)} >
+            <SBox onClick={handleChangeTour} >
                 <IMG path={path} />
                 <Menu> {category} </Menu>
             </SBox>

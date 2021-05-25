@@ -5,7 +5,7 @@ import SelectedMent from '../publicComponents/SelectedMent';
 import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import FoodListBox from '../components/FoodPage/FoodListBox';
 import InfoBox from '../components/FoodPage/InfoBox';
-const foodURL = 'http://localhost:8000/foodinfo';
+import categoryRepository from '../repository/categoryRepository';
 const NONE = 'none';
 const BLOCK = 'block';
 
@@ -22,14 +22,11 @@ const FoodPage = () => {
 
     const getFoodData = async () => {
         try {
-            const { data } = await axios.get(foodURL);
-            if (!data) {
-                return;
-            };
+            const { data } = await categoryRepository.getFoodData();
             setFoodData(data);
         } catch(err) {
             console.log(err);
-            alert('서버 오류');
+            alert('서버에 오류가 있습니다');
         };
     };
 
