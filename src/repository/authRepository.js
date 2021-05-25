@@ -9,6 +9,10 @@ class AuthRepository {
     signUp(data) {
         return axiosInstance.post('/signup', data);
     };
+
+    checkAccount(account) {
+        return axiosInstance.get(`/check/${account}`);
+    };
 };
 
 const authRepository = new AuthRepository();

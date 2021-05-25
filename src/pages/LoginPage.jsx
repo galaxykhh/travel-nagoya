@@ -34,13 +34,13 @@ const LoginPage = () => {
                 <Div> Travel </Div>
                 <Div> NAGOYA </Div>
                 <InputBox>
-                    <Input placeholder='이메일'
+                    <Input placeholder='아이디'
                         type='text'
-                        {...register('email', {
-                            required: '이메일을 입력해주세요'
+                        {...register('account', {
+                            required: '아이디를 입력해주세요'
                         })}
                     />
-                    {errors.email && <ErrorMsg> {errors.email.message} </ErrorMsg>}
+                    {errors.account && <ErrorMsg> {errors.account.message} </ErrorMsg>}
                 </InputBox>
                 <InputBox>
                     <Input placeholder='비밀번호'
