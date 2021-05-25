@@ -3,14 +3,15 @@ import styled from 'styled-components';
 import ScreenViewer from '../../publicComponents/ScreenViewer';
 import Info from './Info';
 
-const InfoBox = ({ currentTour, ovrly, hideOvrly, animate, modal }) => {
+const InfoBox = ({ selectedTour, ovrly, hideOvrly, animate, modal }) => {
     return (
         <Wrap ovrly={ovrly} onClick={hideOvrly} >
             <FlexBox>
                 <ScreenViewer modal={modal}
-                    animate={animate} >
+                    animate={animate}
+                >
                     <GridBox>
-                    {currentTour?.map(item => (
+                    {selectedTour?.map(item => (
                         <Info item={item}
                             key={item.id}
                         />
@@ -45,4 +46,4 @@ const GridBox = styled.div`
     grid-template-areas: 
     'a b'
     'c d';
-`
+`;

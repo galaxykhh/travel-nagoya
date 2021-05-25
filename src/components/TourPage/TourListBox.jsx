@@ -18,20 +18,20 @@ const tourData = [
 
 const TourListBox = ({ handleChangeTour }) => {
     return (
-        <FLEX>
+        <FlexBox>
             {tourData.map((list, index) => (
                 <TourLists list={list}
                     key={list.id}
                     handleChangeTour={() => handleChangeTour(index)}
                 />
             ))}
-        </FLEX>
+        </FlexBox>
     );
 };
 
 export default TourListBox;
 
-const FLEX = styled.div`
+const FlexBox = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;

@@ -1,16 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ShopLists = ({ list, clickEvent }) => {
-    const { path, shopName } = list;
+const ShopLists = ({ item, handleChangeShop }) => {
+    const { path, shopName } = item;
 
     return (
-        <>
-            <ShopBox onClick={() => clickEvent(shopName)}>
-                <IMG src={path} />
-                <ShopName> {shopName} </ShopName>
-            </ShopBox>
-        </>
+        <ShopBox onClick={handleChangeShop}>
+            <IMG src={path} />
+            <ShopName> {shopName} </ShopName>
+        </ShopBox>
     );
 };
 
@@ -20,7 +18,7 @@ const ShopBox = styled.div`
     justify-content: center;
     align-items: center;
     margin-top: 40px;
-    transition:transform .5s ease;
+    transition: transform .5s ease;
     &:hover {
         cursor: pointer;
         transform:scale(1.02);

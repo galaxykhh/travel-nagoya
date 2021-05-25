@@ -11,7 +11,7 @@ const BLOCK = 'block';
 
 const TourPage = () => {
     const [tourData, setTourData] = useState([]);
-    const [currentTour, setCurrentTour] = useState([]);
+    const [selectedTour, setSelectedTour] = useState([]);
     const [ovrly, setOvrly] = useState(NONE);
     const [animate, setAnimate] = useState(slideUp);
 
@@ -30,8 +30,8 @@ const TourPage = () => {
     }, []);
 
     const handleChangeTour = (clickedIndex) => {
-        const selectedTour = tourData[clickedIndex];
-        setCurrentTour(selectedTour);
+        const data = tourData[clickedIndex];
+        setSelectedTour(data);
         setOvrly(BLOCK);
     };
 
@@ -49,7 +49,7 @@ const TourPage = () => {
             <TourListBox tourData={tourData}
                 handleChangeTour={handleChangeTour}
             />
-            <InfoBox currentTour={currentTour}
+            <InfoBox selectedTour={selectedTour}
                 hideOvrly={hideOvrly}
                 ovrly={ovrly}
                 animate={animate} />

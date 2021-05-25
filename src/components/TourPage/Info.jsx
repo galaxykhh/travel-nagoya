@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ItemContainer = ({ item }) => {
+const Info = ({ item }) => {
     const { photo, memo } = item;
     return (
         <ItemBox>
@@ -11,7 +11,7 @@ const ItemContainer = ({ item }) => {
     );
 };
 
-export default ItemContainer;
+export default Info;
 
 const ItemBox = styled.div`
     display: flex;
@@ -26,7 +26,7 @@ const ItemBox = styled.div`
     transition:transform .5s ease;
     &:hover {
         transform:scale(1.03);
-    }
+    };
 `;
 
 const H1 = styled.div`
@@ -36,7 +36,7 @@ const H1 = styled.div`
     margin-bottom: 30px;
     @media only screen and (max-width: 540px) {
         font-size: 20px;
-    }
+    };
 `;
 
 const H2 = styled.div`

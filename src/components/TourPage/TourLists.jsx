@@ -6,10 +6,10 @@ function TourLists({ list, handleChangeTour }) {
 
     return (
         <>
-            <SBox onClick={handleChangeTour} >
+            <CategoryBox onClick={handleChangeTour} >
                 <IMG path={path} />
                 <Menu> {category} </Menu>
-            </SBox>
+            </CategoryBox>
         </>
     );
 }
@@ -30,7 +30,7 @@ const Menu = styled.div`
     font-size: 25px;
 `;
 
-const SBox = styled.div`
+const CategoryBox = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;

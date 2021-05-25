@@ -6,8 +6,11 @@ import { fadeUp } from '../../style/keyframes';
 const ShopListBox = ({ shopData, handleChangeShop }) => {
     return (
         <Container>
-            {shopData.map(list => (
-                <ShopLists list={list} key={list.id} clickEvent={handleChangeShop} />
+            {shopData?.map((item, index) => (
+                <ShopLists item={item}
+                    key={item.id}
+                    handleChangeShop={() => handleChangeShop(index)}
+                />
             ))}
         </Container>
     );

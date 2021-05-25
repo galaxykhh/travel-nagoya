@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import ScreenViewer from '../../publicComponents/ScreenViewer';
-
-const InfoBox = ({ shopName, subtitle, modal, ovrly, hideOvrly, animate }) => {
+import Info from './Info';
+const InfoBox = ({ selectedShop, modal, ovrly, hideOvrly, animate }) => {
     return (
         <Wrap ovrly={ovrly} onClick={hideOvrly} >
-            <FLEX >
+            <FlexBox >
                 <ScreenViewer modal={modal}
                     animate={animate} >
-                    <H1> {shopName} </H1>
-                    <H2> {subtitle} </H2>
+                    <Info shopName={selectedShop?.shopName}
+                        subTitle={selectedShop?.subTitle}
+                    />
                 </ScreenViewer>
-            </FLEX>
+            </FlexBox>
         </Wrap>
     );
 };
@@ -26,23 +27,11 @@ const Wrap = styled.div`
     opacity: 1;
 `;
 
-const FLEX = styled.div`
+const FlexBox = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
-`;
-
-const H1 = styled.div`
-    font-weight: bold;
-    font-size: 30px;
-    margin-top: 40px;
-`;
-
-const H2 = styled.div`
-    font-size: 20px;
-    margin-top: 50px;
-    white-space: pre-wrap;
 `;
 
 export default InfoBox;

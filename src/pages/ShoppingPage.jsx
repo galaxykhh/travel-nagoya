@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import axios from 'axios';
 import SelectedMent from '../publicComponents/SelectedMent';
 import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import ShopListBox from '../components/ShoppingPage/ShopListBox';
 import InfoBox from '../components/ShoppingPage/InfoBox';
 import { slideUp, slideDown } from '../style/keyframes';
 import categoryRepository from '../repository/categoryRepository';
-const shopURL = 'http://localhost:8000/shopinfo';
 const NONE = 'none';
 const BLOCK = 'block';
 
 const ShoppingPage = () => {
     const [shopData, setShopData] = useState([]);
-    const [shopName, setShopName] = useState();
-    const [subtitle, setSubtitle] = useState();
+    const [selectedShop, setSelectedShop] = useState([]);
     const [ovrly, setOvrly] = useState(NONE);
     const [animate, setAnimate] = useState(slideUp);
 
@@ -32,12 +29,9 @@ const ShoppingPage = () => {
         getShoppingData();
     }, []);
 
-    const handleChangeShop = (clickedShop) => {
-        const selectedShop = shopData.find(({ shopName }) => shopName === clickedShop);
-        const shopName = selectedShop.shopName;
-        const subtitle = selectedShop.subtitle;
-        setShopName(shopName);
-        setSubtitle(subtitle);
+    const handleChangeShop = (clickedIndex) => {
+        const data = shopData[clickedIndex];
+        setSelectedShop(data);
         setOvrly(BLOCK);
     };
 
@@ -55,8 +49,7 @@ const ShoppingPage = () => {
             <ShopListBox shopData={shopData}
                 handleChangeShop={handleChangeShop}
             />
-            <InfoBox shopName={shopName}
-                subtitle={subtitle}
+            <InfoBox selectedShop={selectedShop}
                 ovrly={ovrly}
                 hideOvrly={hideOvrly}
                 animate={animate}
