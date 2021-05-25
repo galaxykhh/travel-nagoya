@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from './components/Header/Header';
 import MainPage from './pages/MainPage';
@@ -11,18 +11,16 @@ import ScrollToTop from './publicComponents/ScrollTop';
 import LoginButton from './publicComponents/LoginButton';
 import LogoutButton from './publicComponents/LogoutButton';
 import PrivateRoute from './publicComponents/PrivateRoute';
-
-export const authContext = createContext();
+import { authContext } from './context/authContext';
 
 const App = () => {
     const [user, setUser] = useState('');
     const store = { user, setUser };
-
     return (
         <authContext.Provider value={store} >
             <BrowserRouter>
                 <Header />
-                {user ?
+                {store.user ?
                     <LogoutButton> 로그아웃 </LogoutButton> :
                     <LoginButton to='/login' > 로그인 </LoginButton>
                 }

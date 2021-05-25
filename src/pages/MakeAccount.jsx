@@ -4,9 +4,9 @@ import styled from 'styled-components';
 import axios from 'axios';
 import HeadShake from 'react-reveal/HeadShake';
 import { useHistory } from 'react-router';
-import { fadeSlideLeft } from '../style/keyframes';
+import { fadeSlideRight } from '../style/keyframes';
 const SERVER = 'http://localhost:8000/userinfo';
-const ACSERVER = 'http://localhost:8000/setupaccount';
+const ACSERVER = 'http://localhost:8000/signUp';
 
 const MakeAccount = () => {
     const [userData, setUserData] = useState(null);
@@ -171,7 +171,7 @@ const Div = styled.div`
 font-size: 55px;
 font-weight: 550;
 letter-spacing: 3px;
-animation: ${fadeSlideLeft} 1s ease forwards;
+animation: ${fadeSlideRight} 1s ease forwards;
 margin-bottom: 40px;
 `;
 

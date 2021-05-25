@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { authContext } from '../App';
+import { authContext } from '../context/authContext';
 
 const LoginButton = ({children}) => {
     const store = useContext(authContext);

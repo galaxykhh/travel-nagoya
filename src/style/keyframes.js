@@ -42,7 +42,7 @@ export const slideDown = keyframes`
     }
 `;
 
-export const fadeSlideDown = keyframes`
+export const fadeSlideLeft = keyframes`
     from {
         margin-left: 200px;
         opacity: 0;
@@ -53,7 +53,7 @@ export const fadeSlideDown = keyframes`
     }
 `;
 
-export const fadeSlideLeft = keyframes`
+export const fadeSlideRight = keyframes`
     from {
         margin-right: 200px;
         opacity: 0;
