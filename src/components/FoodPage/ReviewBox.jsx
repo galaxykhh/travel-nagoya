@@ -1,7 +1,25 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const BBox = styled.div`
+const ReviewBox = ({imgPath, restName, restSub, linkTo}) => {
+    return (
+        <>
+            <FirstMent>아래 가게는 별점이 가장 높은 가게입니다!</FirstMent>
+            <SecondMent> (마음에 드는 가게를 누르시면 상세 페이지로 이동합니다)</SecondMent>
+            <Box as='a' href={linkTo} target="_blank" >
+                <Img src={imgPath} />
+                <Item>
+                    <RestName> {restName} </RestName>
+                    <Explain> {restSub} </Explain>
+                </Item>
+            </Box>
+        </>
+    );
+};
+
+export default ReviewBox;
+
+const Box = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
@@ -24,7 +42,7 @@ const BBox = styled.div`
     }
 `;
 
-const SBox = styled.div`
+const Item = styled.div`
     width: 740px;
     flex-direction: column;
 `;
@@ -40,7 +58,7 @@ const Img = styled.img`
     }
 `;
 
-const H2 = styled.div`
+const Explain = styled.div`
     font-size: 16px;
     margin-top: 20px;
     margin-left: 30px;
@@ -63,7 +81,7 @@ const H2 = styled.div`
     }
 `;
 
-const H1 = styled.div`
+const RestName = styled.div`
     font-size: 20px;
     margin-top: 20px;
     margin-left: 30px;
@@ -78,7 +96,7 @@ const H1 = styled.div`
     }
 `;
 
-const H3 = styled.div`
+const FirstMent = styled.div`
     margin-top: 80px;
     font-size: 25px;
     @media only screen and (max-width: 540px) {
@@ -86,7 +104,7 @@ const H3 = styled.div`
     }
 `;
 
-const H4 = styled.div`
+const SecondMent = styled.div`
     margin-top: 30px;
     font-size: 18px;
     color: #26586b;
@@ -94,21 +112,3 @@ const H4 = styled.div`
         font-size: 13px;
     }
 `;
-
-
-const ReviewBox = ({imgPath, restName, restSub, linkTo}) => {
-    return (
-        <>
-            <H3>아래 가게는 별점이 가장 높은 가게입니다!</H3>
-            <H4> (마음에 드는 가게를 누르시면 상세 페이지로 이동합니다)</H4>
-            <BBox as='a' href={linkTo} target="_blank" >
-                <Img src={imgPath} />
-                <SBox>
-                    <H1> {restName} </H1>
-                    <H2> {restSub} </H2>
-                </SBox>
-            </BBox>
-        </>
-    );
-}
-export default ReviewBox;

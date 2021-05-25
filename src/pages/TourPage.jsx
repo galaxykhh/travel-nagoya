@@ -1,45 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import axios from 'axios';
-import SelectedMent from '../pubcomp/SelectedMent';
-import ChooseKindMent from '../pubcomp/ChooseKindMent';
+import SelectedMent from '../publicComponents/SelectedMent';
+import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import TourListBox from '../components/TourPage/TourListBox';
 import InfoBox from '../components/TourPage/InfoBox';
+import { slideUp, slideDown } from '../style/keyframes';
 const tourURL = 'http://localhost:8000/tourinfo';
 const NONE = 'none';
 const BLOCK = 'block';
 
-const FirstFlex = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`;
-
-const slideUp = keyframes`
-  from {
-      margin-top: 1400px;
-      opacity: 1;
-  }
-  to {
-      margin-top: 100px;
-      opacity: 1;
-  }
-`;
-
-const slideDown = keyframes`
-    from {
-        margin-top: 100px;
-        opacity: 1;
-    }
-    to {
-        margin-top: 1400px;
-        opacity: 1;
-    }
-`;
-
-function TourContainer() {
-
+function TourPage() {
     const [tourData, setTourData] = useState([]);
     const [title, setTitle] = useState();
     const [memo1, setMemo1] = useState();
@@ -77,7 +48,6 @@ function TourContainer() {
         const photo2 = selectedCategory.photo2;
         const photo3 = selectedCategory.photo3;
         const photo4 = selectedCategory.photo4;
-
         setTitle(title);
         setMemo1(memo1);
         setMemo2(memo2);
@@ -88,38 +58,43 @@ function TourContainer() {
         setPhoto3(photo3);
         setPhoto4(photo4);
         setOvrly(BLOCK);
-    }
+    };
 
     const hideOvrly = () => {
         window.scrollTo(0, 0);
         setTimeout(() => setOvrly(NONE), 450); // slideDown 애니메이션이 끝날즈음에 오버레이를 꺼주고,
         setTimeout(() => setAnimate(slideUp), 450); // 다시 음식을 선택했을때 창이 올라와야하니 slideUp으로 바꿔준다.
         setAnimate(slideDown)
-    }
+    };
 
     return (
         <FirstFlex>
             <SelectedMent> 볼거리를 선택해주셨네요! </SelectedMent>
             <ChooseKindMent> 어떤 카테고리가 마음에 드세요? </ChooseKindMent>
             <TourListBox tourData={tourData}
-                         handleChangeTour={handleChangeTour}
+                handleChangeTour={handleChangeTour}
             />
-
             <InfoBox title={title}
-                     memo1={memo1}
-                     memo2={memo2}
-                     memo3={memo3}
-                     memo4={memo4}
-                     photo1={photo1}
-                     photo2={photo2}
-                     photo3={photo3}
-                     photo4={photo4}
-                     
-                     hideOvrly={hideOvrly}
-                     ovrly={ovrly}
-                     animate={animate} />
+                memo1={memo1}
+                memo2={memo2}
+                memo3={memo3}
+                memo4={memo4}
+                photo1={photo1}
+                photo2={photo2}
+                photo3={photo3}
+                photo4={photo4}
+                hideOvrly={hideOvrly}
+                ovrly={ovrly}
+                animate={animate} />
         </FirstFlex>
     );
-}
+};
 
-export default TourContainer;
+export default TourPage;
+
+const FirstFlex = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;

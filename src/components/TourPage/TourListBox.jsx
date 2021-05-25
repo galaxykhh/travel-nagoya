@@ -1,17 +1,22 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import { fadeUp } from '../../style/keyframes';
 import TourLists from './TourLists';
 
-const FadeUp = keyframes`
-  from {
-    opacity: 0;
-    padding-top: 65px;
-  };
-  to {
-    opacity: 1;
-    padding-top: 0px;
-  };
-`;
+const TourListBox = ({ tourData, handleChangeTour }) => {
+  return (
+      <FLEX>
+          {tourData.map(list => (
+              <TourLists list={list}
+                  key={list.id}
+                  handleChangeTour={handleChangeTour}
+              />
+          ))}
+      </FLEX>
+  );
+};
+
+export default TourListBox;
 
 const FLEX = styled.div`
   display: flex;
@@ -21,21 +26,6 @@ const FLEX = styled.div`
   width: 1200px;
   height: 300px;
   opacity: 0;
-  animation: ${FadeUp} 1s ease forwards;
+  animation: ${fadeUp} 1s ease forwards;
   animation-delay: 1s;
 `;
-
-const TourListBox = ({ tourData, handleChangeTour }) => {
-    return (
-        <FLEX>
-            {tourData.map(list => (
-                <TourLists list={list}
-                    key={list.id}
-                    handleChangeTour={handleChangeTour}
-                />
-            ))}
-        </FLEX>
-    );
-};
-
-export default TourListBox;

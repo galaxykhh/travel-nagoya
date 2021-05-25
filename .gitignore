@@ -10,6 +10,9 @@
 # testing
 /coverage
 
+#config
+/src/config.js
+
 # production
 /build
 

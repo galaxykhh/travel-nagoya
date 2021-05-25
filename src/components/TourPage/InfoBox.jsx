@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import ScreenViewer from '../../pubcomp/ScreenViewer';
+import ScreenViewer from '../../publicComponents/ScreenViewer';
 
 const Wrap = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
-  display: ${props => props.ovrly};
-  opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    display: ${props => props.ovrly};
+    opacity: 1;
 `;
 
 const FLEX = styled.div`
@@ -68,7 +68,6 @@ const ItemContainer = ({ title, photo1, memo1,
                                 photo2, memo2,
                                 photo3, memo3,
                                 photo4, memo4 }) => {
-
     return (
         <>
             <H1> {title} </H1>

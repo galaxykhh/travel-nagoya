@@ -1,19 +1,104 @@
 import React, { useState, useContext, useEffect } from "react"
 import { NavLink, useHistory } from 'react-router-dom';
-import AccountViewer from '../pubcomp/AccountViewer';
+import AccountViewer from '../publicComponents/AccountViewer';
 import HeadShake from 'react-reveal/HeadShake';
 import styled from 'styled-components';
 import axios from 'axios';
-import { slideDown } from '../pubcomp/slideAnimation'
 import { authContext } from '../App';
+import { fadeSlideDown } from "../style/keyframes";
 const SERVER = 'http://localhost:8000/userinfo';
+
+const LoginPage = () => {
+    const store = useContext(authContext);
+    const history = useHistory();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [checkLogin, setCheckLogin] = useState('');
+    const [vibrate, setVibrate] = useState(false);
+    const getIDValue = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const getPWValue = (e) => {
+        setPassword(e.target.value);
+    };
+
+    useEffect(() => {
+        console.log(store.user)
+    }, [store.user]);
+
+    const signin = async (email, password) => {
+        try {
+            const { data } = await axios.get(SERVER) // DB가 있다고 가정한 서버 내 배열
+            if (!data) {
+                return;
+            };
+            const tryUser = data.find((data) => data.email === email && data.password === password)
+            if (!tryUser) {
+                setCheckLogin('회원 정보가 일치하지 않습니다');
+                setEmail('');
+                setPassword('');
+                setVibrate(!vibrate);
+            } else {
+                const validUser = {
+                    email: tryUser.emial,
+                    name: tryUser.name,
+                };
+                alert(`${validUser.name} 여행자님, 반갑습니다!`);
+                store.setUser(validUser);
+                history.push('/');
+            };
+        } catch(err) {
+            console.log(err);
+            alert('서버가 점검중입니다')
+        };
+    };
+
+    const pressEnterHandle = (e) => {
+        if (e.key === 'Enter') {
+            signin(email, password);
+        }
+    }
+
+    return (
+        <AccountViewer>
+            <Div> Travel </Div>
+            <Div> NAGOYA </Div>
+            <Input placeholder='이메일'
+                defaultValue={email}
+                onChange={getIDValue}
+                type='text'
+            />
+
+            <Input placeholder='비밀번호'
+                defaultValue={password}
+                onChange={getPWValue}
+                onKeyPress={pressEnterHandle}
+                type='password'
+            />
+
+            <LoginBtn onClick={() => signin(email, password)}>
+                로그인
+            </LoginBtn>
+            <HeadShake vibrate={vibrate} >
+                <div style={{ color: 'red' }} >{checkLogin}</div>
+            </HeadShake>
+            <div style={{ color: '#4a4d4c', marginTop: '20px' }} > 아직 회원이 아니신가요? </div>
+            <NavLink to='makeaccount'>
+                <MakeAccountBtn> 회원가입 </MakeAccountBtn>
+            </NavLink>
+        </AccountViewer>
+    )
+}
+
+export default LoginPage;
 
 const Div = styled.div`
     font-family: Chango;
     font-size: 55px;
     font-weight: bolder;
     letter-spacing: 3px;
-    animation: ${slideDown} 1s ease forwards;
+    animation: ${fadeSlideDown} 1s ease forwards;
     margin-bottom: 20px;
 `;
 
@@ -50,82 +135,3 @@ const MakeAccountBtn = styled(LoginBtn)`
     margin-top: 30px;
     background-color: #5f83cf;
 `;
-
-const LoginPage = () => {
-    const store = useContext(authContext);
-    const history = useHistory();
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [checkLogin, setCheckLogin] = useState('');
-    const [spy, setSpy] = useState(false);
-    const getIDValue = (e) => {
-        setEmail(e.target.value);
-    }
-
-    const getPWValue = (e) => {
-        setPassword(e.target.value);
-    }
-
-    useEffect(() => {
-        console.log(store.user)
-    }, [store.user]);
-
-    const signin = async (email, password) => {
-        const response = await axios.get(SERVER)
-        if (!response) {
-            return;
-        }
-        const userData = response.data;
-
-        const tryUser = userData.find((userData) => userData.email === email && userData.password === password)
-        if (tryUser === undefined) {
-            setCheckLogin('회원 정보가 일치하지 않습니다')
-            setEmail('');
-            setPassword('');
-            setSpy(!spy);
-        } else {
-            alert(`${tryUser.name} 여행자님, 반갑습니다!`)
-            store.setUser(tryUser);
-            history.push('/');
-        }
-    }
-
-    const pressEnterHandle = (e) => {
-        if (e.key === 'Enter') {
-            signin(email, password);
-        }
-    }
-
-    return (
-        <AccountViewer>
-            <Div> Travel </Div>
-            <Div> NAGOYA </Div>
-            <Div />
-            <Input placeholder='이메일'
-                defaultValue={email}
-                onChange={getIDValue}
-                type='text'
-            />
-
-            <Input placeholder='비밀번호'
-                defaultValue={password}
-                onChange={getPWValue}
-                onKeyPress={pressEnterHandle}
-                type='password'
-            />
-
-            <LoginBtn onClick={() => signin(email, password)}>
-                로그인
-            </LoginBtn>
-            <HeadShake spy={spy} >
-                <div style={{ color: 'red' }} >{checkLogin}</div>
-            </HeadShake>
-            <div style={{ color: '#4a4d4c', marginTop: '20px' }} > 아직 회원이 아니신가요? </div>
-            <NavLink to='makeaccount'>
-                <MakeAccountBtn> 회원가입 </MakeAccountBtn>
-            </NavLink>
-        </AccountViewer>
-    )
-}
-
-export default LoginPage;

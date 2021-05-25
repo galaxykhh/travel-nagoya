@@ -1,6 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const ShopLists = ({ list, clickEvent }) => {
+    const { path, shopName } = list;
+
+    return (
+        <>
+            <ShopBox onClick={() => clickEvent(shopName)}>
+                <IMG src={path} />
+                <ShopName> {shopName} </ShopName>
+            </ShopBox>
+        </>
+    );
+};
+
 const ShopBox = styled.div`
     display: flex;
     flex-direction: column;
@@ -24,18 +37,5 @@ const IMG = styled.img`
 const ShopName = styled.div`
     font-size: 22px;
 `;
-
-const ShopLists = ({ list, clickEvent }) => {
-    const { path, shopName } = list;
-
-    return (
-        <>
-            <ShopBox onClick={() => clickEvent(shopName)}>
-                <IMG src={path} />
-                <ShopName> {shopName} </ShopName>
-            </ShopBox>
-        </>
-    );
-}
 
 export default ShopLists

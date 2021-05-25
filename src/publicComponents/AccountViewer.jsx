@@ -1,6 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
+const AccountViewer = ({children}) => {
+    return (
+        <FLEX> {children} </FLEX>
+    );
+};
+
+export default AccountViewer;
+
 const FLEX = styled.div`
     display: flex;
     flex-direction: column;
@@ -8,11 +16,3 @@ const FLEX = styled.div`
     align-items: center;
     margin-top: 120px;
 `;
-
-const AccountViewer = ({children}) => {
-    return (
-        <FLEX> {children} </FLEX>
-    )
-}
-
-export default AccountViewer

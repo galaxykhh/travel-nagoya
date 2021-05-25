@@ -1,7 +1,16 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { authContext } from '../App';
+
+const LoginButton = ({to, children}) => {
+    return (
+        <AccountBox>
+            <AccountBtn to={to} > {children} </AccountBtn>
+        </AccountBox>
+    );
+};
+
+export default LoginButton;
 
 const AccountBtn = styled(NavLink)`
     padding-right: 7px;
@@ -33,22 +42,3 @@ const AccountBox = styled.div`
     align-items: center;
     z-index: 1;
 `;
-
-
-
-const LoginButton = ({children}) => {
-    const store = useContext(authContext);
-
-    const signout = () => {
-        store.setUser('');
-        alert('로그아웃 되었습니다');
-    }
-
-    return (
-        <AccountBox>
-            <AccountBtn to='/login' onClick={signout} > {children} </AccountBtn>
-        </AccountBox>
-    );
-}
-
-export default LoginButton;

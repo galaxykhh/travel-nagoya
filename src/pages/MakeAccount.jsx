@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import AccountViewer from '../pubcomp/AccountViewer';
+import AccountViewer from '../publicComponents/AccountViewer';
 import styled from 'styled-components';
 import axios from 'axios';
 import HeadShake from 'react-reveal/HeadShake';
-import { slideLeft } from '../pubcomp/slideAnimation'
 import { useHistory } from 'react-router';
+import { fadeSlideLeft } from '../style/keyframes';
 const SERVER = 'http://localhost:8000/userinfo';
 const ACSERVER = 'http://localhost:8000/setupaccount';
 
 const MakeAccount = () => {
-
     const [userData, setUserData] = useState(null);
     const [checkAccount, setCheckAccount] = useState('');
     const [checkPW, setCheckPW] = useState('');
@@ -23,7 +22,6 @@ const MakeAccount = () => {
     const [accountState, setAccountState] = useState(false);
     const [passwordState, setPasswordState] = useState(false);
     const history = useHistory();
-
 
     const getAccountValue = (e) => {
         setAccount(e.target.value);
@@ -43,7 +41,6 @@ const MakeAccount = () => {
 
     useEffect(() => {
         if (passwordCheck.length >= 1) {
-
             if (passwordCheck === password) {
                 setPasswordColor('#6AAFE6');
                 setCheckPW('비밀번호가 일치합니다');
@@ -52,21 +49,20 @@ const MakeAccount = () => {
                 setPasswordColor('red');
                 setCheckPW('비밀번호가 일치하지 않습니다');
                 setPasswordState(false);
-            }
-        }
-    }, [passwordCheck, password])
+            };
+        };
+    }, [passwordCheck, password]);
 
     const getUserData = async () => {
         const response = await axios.get(SERVER);
         if (!response) {
             return;
-        }
+        };
         setUserData(response.data);
-    }
+    };
 
     useEffect(() => {
         getUserData();
-
     }, []);
 
     const isAvailableAccount = (account) => {
@@ -75,7 +71,7 @@ const MakeAccount = () => {
             return
         }
         else {
-            const TryAccount = userData.find((data) => data.email === account);
+            const TryAccount = userData.find(data => data.email === account);
             if (account.length >= 12) {
                 setAccountColor('red');
                 setCheckAccount('아이디는 12자 미만으로 만들어주세요');
@@ -141,30 +137,23 @@ return (
                 type='text'
                 defaultValue={account}
             />
-
             <HeadShake spy={spyAccount}>
                 <AlertMail color={accountColor} > {checkAccount} </AlertMail>
             </HeadShake>
-
             <IsAlreadyBtn onClick={() => isAvailableAccount(account)}> 이메일 중복확인 </IsAlreadyBtn>
-
             <Input placeholder='비밀번호'
                 defaultValue={password}
                 onChange={getPWValue}
                 onKeyPress={availablePasswordHandle}
                 type='password'
             />
-
             <Input placeholder='비밀번호 확인'
                 defaultValue={passwordCheck}
                 onChange={isSamePassword}
                 type='password'
             />
-
             <AlertPassword color={passwordColor} > {checkPW} </AlertPassword>
-
             <MakeBtn onClick={setUp} > 가입하기 </MakeBtn>
-
         </AccountViewer>
     </>
 
@@ -182,8 +171,8 @@ const Div = styled.div`
 font-size: 55px;
 font-weight: 550;
 letter-spacing: 3px;
-animation: ${slideLeft} 1s ease forwards;
-margin-bottom: 108px;
+animation: ${fadeSlideLeft} 1s ease forwards;
+margin-bottom: 40px;
 `;
 
 const IsAlreadyBtn = styled.button`
