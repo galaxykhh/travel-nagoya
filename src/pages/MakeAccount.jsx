@@ -17,10 +17,7 @@ const MakeAccount = () => {
 
     const onSubmit = async (data) => {
         if (isChecked === false) {
-            setError('account', {
-                type: 'notChecked',
-                message: '아이디 중복확인을 해주세요'
-            });
+            setError('account', { type: 'notChecked' });
             return;
         };
         try {
@@ -37,17 +34,11 @@ const MakeAccount = () => {
     const checkAccount = async (account) => {
         const { data: { message } } = await authRepository.checkAccount(account);
         if (message === 'already exist') {
-            setError('account', {
-                type: 'duplicated',
-                message: '이미 사용중인 아이디입니다',
-            });
+            setError('account', { type: 'duplicated' });
             return;
         }
         if (message === 'not exist') {
-            setError('account', {
-                type: 'notExist',
-                message: '사용 가능한 아이디입니다',
-            });
+            setError('account', { type: 'notExist' });
             setIsChecked(true);
             return;
         };
