@@ -8,22 +8,17 @@ import ShoppingPage from './pages/ShoppingPage';
 import LoginPage from './pages/LoginPage';
 import MakeAccount from './pages/MakeAccount';
 import ScrollToTop from './publicComponents/ScrollTop';
-import LoginButton from './publicComponents/LoginButton';
-import LogoutButton from './publicComponents/LogoutButton';
 import PrivateRoute from './publicComponents/PrivateRoute';
 import { authContext } from './context/authContext';
 
 const App = () => {
     const [user, setUser] = useState('');
     const store = { user, setUser };
+    
     return (
         <authContext.Provider value={store} >
             <BrowserRouter>
                 <Header />
-                {store.user ?
-                    <LogoutButton> 로그아웃 </LogoutButton> :
-                    <LoginButton to='/login' > 로그인 </LoginButton>
-                }
                 <Switch>
                     <Route exact path='/'>
                         <ScrollToTop />

@@ -1,6 +1,17 @@
 import { axiosInstance } from './axiosInstance';
 
 class CategoryRepository {
+
+    handleCategory(category) {
+        switch (category) {
+            case 'food' :
+                return this.getFoodData();
+            case 'shop' :
+                return this.getShoppingData();
+            case 'tour' :
+                return this.getTourData();
+        };
+    };
     
     getFoodData() {
         return axiosInstance.get('/foodinfo');

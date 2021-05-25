@@ -2,17 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
 
-const LoginButton = ({to, children}) => {
+const LoginButton = () => {
     return (
-        <AccountBox>
-            <AccountBtn to={to} > {children} </AccountBtn>
-        </AccountBox>
+        <ButtonBox>
+            <Button to='/login'> 로그인 </Button>
+        </ButtonBox>
     );
 };
 
 export default LoginButton;
 
-const AccountBtn = styled(NavLink)`
+const Button = styled(NavLink)`
     padding-right: 7px;
     padding-left: 7px;
     padding-top: 3px;
@@ -32,7 +32,7 @@ const AccountBtn = styled(NavLink)`
     }
 `;
 
-const AccountBox = styled.div`
+const ButtonBox = styled.div`
     position: fixed;
     top: 12px;
     right: 25px;
