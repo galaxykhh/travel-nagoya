@@ -4,10 +4,10 @@ import SelectedMent from '../publicComponents/SelectedMent';
 import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import TourListBox from '../components/TourPage/TourListBox';
 import InfoBox from '../components/TourPage/InfoBox';
-import { useHandlePage } from '../hook/useHandlePage';
+import { useData } from '../hook/useData';
 
 const TourPage = () => {
-    const handler = useHandlePage('tour');
+    const handler = useData('tour');
 
     return (
         <FirstFlex>
@@ -17,8 +17,8 @@ const TourPage = () => {
                 handleChangeTour={handler.handleChangeItem}
             />
             <InfoBox selectedTour={handler.selectedData}
-                hideOvrly={handler.hideOvrly}
-                ovrly={handler.ovrly}
+                hideOvrly={handler.hideOverlay}
+                ovrly={handler.overlay}
                 animate={handler.animate} />
         </FirstFlex>
     );

@@ -4,10 +4,10 @@ import SelectedMent from '../publicComponents/SelectedMent';
 import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import FoodListBox from '../components/FoodPage/FoodListBox';
 import InfoBox from '../components/FoodPage/InfoBox';
-import { useHandlePage } from '../hook/useHandlePage';
+import { useData } from '../hook/useData';
 
 const FoodPage = () => {
-    const handler = useHandlePage('food');
+    const handler = useData('food');
 
     return (
         <FlexBox>
@@ -17,9 +17,9 @@ const FoodPage = () => {
                 handleChangeFood={handler.handleChangeItem}
             />
             <InfoBox selectedFood={handler.selectedData}
-                ovrly={handler.ovrly}
+                ovrly={handler.overlay}
                 animate={handler.animate}
-                hideOvrly={handler.hideOvrly}
+                hideOvrly={handler.hideOverlay}
             />
         </FlexBox>
     );

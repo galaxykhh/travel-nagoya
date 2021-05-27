@@ -4,10 +4,10 @@ import SelectedMent from '../publicComponents/SelectedMent';
 import ChooseKindMent from '../publicComponents/ChooseKindMent';
 import ShopListBox from '../components/ShoppingPage/ShopListBox';
 import InfoBox from '../components/ShoppingPage/InfoBox';
-import { useHandlePage } from '../hook/useHandlePage';
+import { useData } from '../hook/useData';
 
 const ShoppingPage = () => {
-    const handler = useHandlePage('shop');
+    const handler = useData('shop');
 
     return (
         <FirstFlex>
@@ -17,8 +17,8 @@ const ShoppingPage = () => {
                 handleChangeShop={handler.handleChangeItem}
             />
             <InfoBox selectedShop={handler.selectedData}
-                ovrly={handler.ovrly}
-                hideOvrly={handler.hideOvrly}
+                ovrly={handler.overlay}
+                hideOvrly={handler.hideOverlay}
                 animate={handler.animate}
             />
         </FirstFlex>

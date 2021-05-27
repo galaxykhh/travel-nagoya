@@ -4,10 +4,10 @@ import { slideDown, slideUp } from '../style/keyframes';
 const NONE = 'none';
 const BLOCK = 'block';
 
-export const useHandlePage = (category) => {
+export const useData = (category) => {
     const [data, setData] = useState([]);
     const [selectedData, setSelectedData] = useState();
-    const [ovrly, setOvrly] = useState(NONE);
+    const [overlay, setOverlay] = useState(NONE);
     const [animate, setAnimate] = useState(slideUp);
 
     const getData = async () => {
@@ -27,12 +27,12 @@ export const useHandlePage = (category) => {
     const handleChangeItem = (clickedIndex) => {
         const selected = data[clickedIndex]
         setSelectedData(selected);
-        setOvrly(BLOCK);
+        setOverlay(BLOCK);
     };
 
-    const hideOvrly = () => {
+    const hideOverlay = () => {
         window.scrollTo(0, 0);
-        setTimeout(() => setOvrly(NONE), 450);
+        setTimeout(() => setOverlay(NONE), 450);
         setTimeout(() => setAnimate(slideUp), 450);
         setAnimate(slideDown);
     };
@@ -40,9 +40,9 @@ export const useHandlePage = (category) => {
     return {
         data,
         selectedData,
-        ovrly,
+        overlay,
         animate,
         handleChangeItem,
-        hideOvrly,
+        hideOverlay,
     };
 };
