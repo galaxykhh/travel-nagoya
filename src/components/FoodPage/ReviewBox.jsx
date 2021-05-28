@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ReviewBox = ({imgPath, restName, restSub, linkTo}) => {
     return (
         <>
-            <FirstMent>아래 가게는 별점이 가장 높은 가게입니다!</FirstMent>
+            <FirstAnnounce>아래 가게는 별점이 가장 높은 가게입니다!</FirstAnnounce>
             <Box as='a' href={linkTo} target="_blank" >
                 <Img src={imgPath} />
                 <Item>
@@ -95,7 +95,7 @@ const RestName = styled.div`
     }
 `;
 
-const FirstMent = styled.div`
+const FirstAnnounce = styled.div`
     margin-top: 80px;
     font-size: 25px;
     @media only screen and (max-width: 540px) {

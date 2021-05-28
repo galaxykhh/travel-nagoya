@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import SelectedMent from '../publicComponents/SelectedMent';
-import ChooseKindMent from '../publicComponents/ChooseKindMent';
+import SelectedAnnounce from '../publicComponents/SelectedAnnounce';
+import ChooseKindAnnounce from '../publicComponents/ChooseKindAnnounce';
 import TourListBox from '../components/TourPage/TourListBox';
 import InfoBox from '../components/TourPage/InfoBox';
 import { useData } from '../hook/useData';
@@ -11,14 +11,14 @@ const TourPage = () => {
 
     return (
         <FirstFlex>
-            <SelectedMent> 볼거리를 선택해주셨네요! </SelectedMent>
-            <ChooseKindMent> 어떤 카테고리가 마음에 드세요? </ChooseKindMent>
+            <SelectedAnnounce> 볼거리를 선택해주셨네요! </SelectedAnnounce>
+            <ChooseKindAnnounce> 어떤 카테고리가 마음에 드세요? </ChooseKindAnnounce>
             <TourListBox tourData={handler.data}
                 handleChangeTour={handler.handleChangeItem}
             />
             <InfoBox selectedTour={handler.selectedData}
-                hideOvrly={handler.hideOverlay}
-                ovrly={handler.overlay}
+                hideOverlay={handler.hideOverlay}
+                overlay={handler.overlay}
                 animate={handler.animate} />
         </FirstFlex>
     );

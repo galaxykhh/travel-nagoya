@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import SelectedMent from '../publicComponents/SelectedMent';
-import ChooseKindMent from '../publicComponents/ChooseKindMent';
+import SelectedAnnounce from '../publicComponents/SelectedAnnounce';
+import ChooseKindAnnounce from '../publicComponents/ChooseKindAnnounce';
 import ShopListBox from '../components/ShoppingPage/ShopListBox';
 import InfoBox from '../components/ShoppingPage/InfoBox';
 import { useData } from '../hook/useData';
@@ -11,14 +11,14 @@ const ShoppingPage = () => {
 
     return (
         <FirstFlex>
-            <SelectedMent> 쇼핑을 선택해주셨네요! </SelectedMent>
-            <ChooseKindMent> 마음에 드실만한 쇼핑장소로 준비했습니다 </ChooseKindMent>
+            <SelectedAnnounce> 쇼핑을 선택해주셨네요! </SelectedAnnounce>
+            <ChooseKindAnnounce> 마음에 드실만한 쇼핑장소로 준비했습니다 </ChooseKindAnnounce>
             <ShopListBox shopData={handler.data}
                 handleChangeShop={handler.handleChangeItem}
             />
             <InfoBox selectedShop={handler.selectedData}
-                ovrly={handler.overlay}
-                hideOvrly={handler.hideOverlay}
+                overlay={handler.overlay}
+                hideOverlay={handler.hideOverlay}
                 animate={handler.animate}
             />
         </FirstFlex>

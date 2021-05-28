@@ -6,7 +6,7 @@ const ShopLists = ({ item, handleChangeShop }) => {
 
     return (
         <ShopBox onClick={handleChangeShop}>
-            <IMG src={path} />
+            <Img src={path} />
             <ShopName> {shopName} </ShopName>
         </ShopBox>
     );
@@ -25,7 +25,7 @@ const ShopBox = styled.div`
     }
 `;
 
-const IMG = styled.img`
+const Img = styled.img`
     border-radius: 30px;
     width: 260px;
     height: 180px;

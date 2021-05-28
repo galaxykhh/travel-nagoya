@@ -6,7 +6,7 @@ const FoodLists = ({ item, handleChangeFood }) => {
 
     return (
         <SBox onClick={handleChangeFood} >
-        <IMG path={path} />
+        <Img path={path} />
             <Menu> {foodName} </Menu>
         </SBox>
     );
@@ -14,7 +14,7 @@ const FoodLists = ({ item, handleChangeFood }) => {
 
 export default FoodLists;
 
-const IMG = styled.div`
+const Img = styled.div`
     background: url(${props => props.path});
     background-size: contain;
     background-repeat: no-repeat;

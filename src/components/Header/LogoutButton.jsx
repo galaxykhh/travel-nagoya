@@ -6,14 +6,14 @@ import { authContext } from '../../context/authContext';
 const LoginButton = () => {
     const store = useContext(authContext);
 
-    const signout = () => {
+    const signOut = () => {
         store.setUser(null);
         alert('로그아웃 되었습니다');
     };
 
     return (
         <ButtonBox>
-            <Button to='/login' onClick={signout} > 로그아웃 </Button>
+            <Button to='/login' onClick={signOut} > 로그아웃 </Button>
         </ButtonBox>
     );
 };

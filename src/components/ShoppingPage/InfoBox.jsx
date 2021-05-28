@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import ScreenViewer from '../../publicComponents/ScreenViewer';
 import Info from './Info';
-const InfoBox = ({ selectedShop, modal, ovrly, hideOvrly, animate }) => {
+const InfoBox = ({ selectedShop, modal, overlay, hideOverlay, animate }) => {
     return (
-        <Wrap ovrly={ovrly} onClick={hideOvrly} >
+        <Wrap overlay={overlay} onClick={hideOverlay} >
             <FlexBox >
                 <ScreenViewer modal={modal}
                     animate={animate} >
@@ -23,7 +23,7 @@ const Wrap = styled.div`
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    display: ${props => props.ovrly};
+    display: ${props => props.overlay};
     opacity: 1;
 `;
 

@@ -7,7 +7,7 @@ const TourLists = ({ list, handleChangeTour }) => {
     return (
         <>
             <CategoryBox onClick={handleChangeTour} >
-                <IMG path={path} />
+                <Img path={path} />
                 <Menu> {category} </Menu>
             </CategoryBox>
         </>
@@ -16,7 +16,7 @@ const TourLists = ({ list, handleChangeTour }) => {
 
 export default TourLists;
 
-const IMG = styled.div`
+const Img = styled.div`
     background: url(${props => props.path});
     border-radius: 20px;
     background-size: cover;

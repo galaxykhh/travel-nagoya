@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import ScreenViewer from '../../publicComponents/ScreenViewer';
 import Info from './Info';
 
-const InfoBox = ({ selectedTour, ovrly, hideOvrly, animate, modal }) => {
+const InfoBox = ({ selectedTour, overlay, hideOverlay, animate, modal }) => {
     return (
-        <Wrap ovrly={ovrly} onClick={hideOvrly} >
+        <Wrap overlay={overlay} onClick={hideOverlay} >
             <FlexBox>
                 <ScreenViewer modal={modal}
                     animate={animate}
@@ -31,7 +31,7 @@ const Wrap = styled.div`
     left: 0;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.3);
-    display: ${props => props.ovrly};
+    display: ${props => props.overlay};
     opacity: 1;
 `;
 

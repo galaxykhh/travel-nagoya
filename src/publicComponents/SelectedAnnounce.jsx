@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import { fadeUp } from '../style/keyframes';
 
-const SelectedMent = ({ children }) => {
+const SelectedAnnounce = ({ children }) => {
     return (
         <FlexBox> {children} </FlexBox>
     );
 };
 
-export default SelectedMent;
+export default SelectedAnnounce;
 
 const FlexBox = styled.div`
     display: flex;
